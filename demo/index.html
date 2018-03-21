@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Workflow...</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="../foyoflow.css">
+  <style type="text/css">
+  	body{
+  		font-size: 13px;
+  	}
+  </style>
+  </head>
+
+  <body>
+
+  	<h2>Foyoflow</h2>
+	<hr />
+	<ol>
+		<li>步骤等待响应</li>
+		<li>宽度适应容器（默认）</li>
+	</ol>
+	<div id="test1" style="width: 80%;margin: 100px auto"></div>
+	
+	<ol>
+		<li>步骤等待处理</li>
+		<li>宽度固定（限制最大间隔，但可被压缩）</li>
+		<li>步骤增加点击事件："onStepClick"</li>
+		<li>步骤线鼠标悬停查看时间间隔："showIntervalWhenMouseHoverOnLine"</li>
+	</ol>
+	<div id="test2" style="width: 80%;margin: 100px auto"></div>
+
+  </body>
+
+	<!-- 核心 -->
+	<script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
+	<script type="text/javascript" src="../jquery.foyoflow.js"></script>
+	<script type="text/javascript">
+		$("#test1").foyoflow({
+			"roadmaps":[
+				{
+					"roadmap_id": "r1",
+					"label": "买西瓜",
+					"status": "done"
+				},
+				{
+					"roadmap_id": "r2",
+					"label": "付钱",
+					"status": "done",
+					"flag": {
+						"flag_id": "f1",
+						"label": "买到",
+						"color": "#03A9F4"
+					}
+				},
+				{
+					"roadmap_id": "r3",
+					"status": "done",
+					"label": "洗瓜"
+				},
+				{
+					"roadmap_id": "r4",
+					"status": "waiting",/*当前步骤等待响应*/
+					"label": "切瓜"
+				},
+				{
+					"roadmap_id": "r5",
+					"label": "洗手"
+				},
+				{
+					"roadmap_id": "r6",
+					"label": "吃瓜",
+					"flag": {
+						"flag_id": "f2",
+						"label": "吃到啦",
+						"color": "#ff5722"
+					}
+				},
+				{
+					"roadmap_id": "r7",
+					"label": "吃完了"
+				}
+			]
+		});
+
+
+
+
+		$("#test2").foyoflow({
+			"maxLineWidth":100,/*限制宽度*/
+			"showIntervalWhenMouseHoverOnLine":true,/*鼠标悬停Line时显示时间差*/
+			"roadmaps":[
+				{
+					"roadmap_id": "r1",
+					"label": "买西瓜",
+					"timestamp": 1521609065,
+					"status": "done"
+				},
+				{
+					"roadmap_id": "r2",
+					"label": "付钱",
+					"timestamp": 1521609065,
+					"status": "done",
+					"flag": {
+						"flag_id": "f1",
+						"label": "买到",
+						"color": "#03A9F4"
+					}
+				},
+				{
+					"roadmap_id": "r3",
+					"status": "done",
+					"timestamp": 1521609065,
+					"label": "洗瓜"
+				},
+				{
+					"roadmap_id": "r4",
+					"status": "done",
+					"timestamp": 1521609065,
+					"label": "切瓜"
+				},
+				{
+					"roadmap_id": "r5",
+					"label": "洗手",
+					"status": "processing",/*当前步骤等待操作*/
+				},
+				{
+					"roadmap_id": "r6",
+					"label": "吃瓜",
+					"flag": {
+						"flag_id": "f2",
+						"label": "吃到啦",
+						"color": "#ff5722"
+					}
+				},
+				{
+					"roadmap_id": "r7",
+					"label": "吃完了"
+				}
+			],
+			"onStepClick":function (step) {
+				console.dir(step);
+				//alert(data["status"]);
+			}
+		});
+	</script>
+	
+</html>
