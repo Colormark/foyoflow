@@ -1,31 +1,10 @@
-(function() {
-
-
-	// $.widget("Foyoflow", {
-
-	// 	options: {
-
-	// 		'step': '<span></span>',
- //            'step-done': '<span></span>',
- //            'step-waiting': '<span></span>',
- //            'step-processing': '<span></span>',
- //            'line': '<span></span>',
- //            'line-done': '<span></span>'
-
-	// 	},
-
-	// 	init: function(opt){
-	// 		this.options = $.extend({}, this.defaults, opt)
-	// 	}
-
-	// });
+;(function() {
 
 	var Foyoflow = function(ele, opt) {
         this.$element = ele,
         this.defaults = {
         	'step': '<span class="foyoflow-step"></span>',
-            'line': '<span class="foyoflow-line"></span>',
-            'step-gap': 60
+            'line': '<span class="foyoflow-line"></span>'
         },
         this.options = $.extend({}, this.defaults, opt)
     }
@@ -66,6 +45,7 @@
         			step.append(flag);
         		}
 
+                step.data("stepData", step_conf);
 
         		ele.append(step);
 

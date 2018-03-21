@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
   <meta charset="utf-8">
 
-  <link rel="stylesheet" href="../foyoflow.css">
+  <link rel="stylesheet" href="../src/foyoflow.css">
   <style type="text/css">
   	body{
   		font-size: 13px;
@@ -35,7 +35,7 @@
 
 	<!-- 核心 -->
 	<script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
-	<script type="text/javascript" src="../jquery.foyoflow.js"></script>
+	<script type="text/javascript" src="../src/jquery.foyoflow.js"></script>
 	<script type="text/javascript">
 		$("#test1").foyoflow({
 			"roadmaps":[
@@ -140,8 +140,8 @@
 				}
 			],
 			"onStepClick":function (step) {
-				console.dir(step);
-				//alert(data["status"]);
+				var stepData = step.data("stepData");
+				alert(stepData["label"]);
 			}
 		});
 	</script>
