@@ -4,6 +4,19 @@
 	align-items: center;
 }
 
+.foyoflow-direction-row{
+	flex-direction: row;
+	padding-top: 40px;
+	padding-bottom: 40px;
+}
+
+.foyoflow-direction-column{
+	flex-direction: column;
+	padding-left: 80px; 
+	padding-right: 100px;
+}
+
+/* */
 .foyoflow-step{
 	width: 18px;
 	height: 18px;
@@ -14,6 +27,7 @@
 	position: relative;
 	display: inline-flex;
 	justify-content: center;
+	align-items: center;
 }
 
 .foyoflow-step-done{
@@ -23,21 +37,39 @@
 	background-size: cover;
 }
 
-.foyoflow-line{
+.foyoflow-direction-row .foyoflow-line{
 	height: 1px;
 	background: #DDD;
 	flex-grow: 1;
 	flex-shrink: 1;
 }
 
-.foyoflow-line-done{
-	background: #15BF63;
+.foyoflow-direction-column .foyoflow-line{
+	width: 1px;
+	background: #DDD;
+	flex-grow: 1;
+	flex-shrink: 1;
+	min-height: 20px;
 }
 
-.foyoflow-step-label{
+.foyoflow-line-done{
+	background-color: #15BF63 !important;
+}
+
+.foyoflow-direction-row .foyoflow-step-label{
 	position: absolute;
 	white-space: nowrap;
 	bottom: -40px;
+}
+.foyoflow-direction-row .foyoflow-step-label-odd{
+	bottom: -24px !important;
+}
+
+
+.foyoflow-direction-column .foyoflow-step-label{
+	position: absolute;
+	white-space: nowrap;
+	left: 30px;
 }
 
 /*.foyoflow-step:nth-child(odd) .foyoflow-step-label{
@@ -48,18 +80,22 @@
 	bottom: -50px;
 }*/
 
-.foyoflow-step-label-odd{
-	bottom: -24px !important;
-}
-
-
-.foyoflow-flag{
+.foyoflow-direction-row .foyoflow-flag{
 	position: absolute;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	top: -41px;
+	top: -38px;
+}
+
+.foyoflow-direction-column .foyoflow-flag{
+	position: absolute;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	right: 26px;
 }
 
 .foyoflow-flag .foyoflow-flag-icon{
