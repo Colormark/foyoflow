@@ -25,13 +25,14 @@ $("#test").foyoflow({
 				"label": "买到", //旗帜标签
 				"color": "#03A9F4" //flag颜色
 			},
-			"timestamp": 1521609065 //完成时间，可选
+			"timestamp": 1521609065, //完成时间，可选
+			"reddot":true, //提示红点，可选
 		}
 	],
 	
 	//更多设置
 	"lineWidth":100,/*限制宽度(垂直时为高度)，默认不限制*/
-	"showIntervalWhenMouseHoverOnLine":true,/*鼠标悬停Line时显示时间差*/
+	"showIntervalWhenMouseHoverOnLine":true,/*鼠标悬停Line时显示时间差*/ //to-do
 	"direction":"row",/*方向，默认column*/
 	
 	//事件
@@ -40,12 +41,18 @@ $("#test").foyoflow({
 		var stepData = step.data("stepData");
 		alert(stepData["label"]);
 	},
-	"onPathClick":function (step)//步骤路径被点击
-	{},
-	"updateRoadmaps":function (roadmaps)//更新数据
-	{},
-	"updateRoadmapById":function (roadmap)//更新具体一个步骤的数据
-	{},
+	"onPathClick":function (step)//步骤路径被点击 
+	{}
+});
+
+//更新数据 
+$("#test").foyoflowUpdate(roadmaps);
+
+//更新具体一个步骤的数据
+$("#test").foyoflowUpdateStep(roadmap);
+
+//追加一个roadmap
+$("#test").foyoflowAppendStep(roadmap);
 	
 	
 ```
