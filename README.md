@@ -30,7 +30,7 @@ $("#test").foyoflow({
 	],
 	
 	//更多设置
-	"maxLineWidth":100,/*限制宽度，默认不限制*/
+	"lineWidth":100,/*限制宽度(垂直时为高度)，默认不限制*/
 	"showIntervalWhenMouseHoverOnLine":true,/*鼠标悬停Line时显示时间差*/
 	"direction":"row",/*方向，默认column*/
 	
