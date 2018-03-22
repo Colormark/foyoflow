@@ -1,5 +1,5 @@
 /*! 
-* foyoflow v0.1.2
+* foyoflow v0.1.3
 *
 * Copyright 2018, Colormark https://github.com/Colormark/foyoflow
 * Released under the GNU General Public License v3.0 license 
@@ -47,8 +47,9 @@
             var ele = this.$element;
             var step = $(this.options["step"]);
             step.attr("foyo_roadmap_id", step_conf["roadmap_id"]);
-            this.rendorStep(step, step_conf);
             ele.append(step);
+            this.rendorStep(step, step_conf);
+            
 
             //on Step Click
             if(typeof this.options["onStepClick"] === "function"){
