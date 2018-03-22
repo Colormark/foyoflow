@@ -16,10 +16,12 @@
   <body>
 
   	<h2>Foyoflow</h2>
+  	<h5>https://github.com/Colormark/foyoflow</h5>
 	<hr />
 	<ol>
 		<li>步骤等待响应</li>
 		<li>宽度适应容器（默认）</li>
+		<li>小红点</li>
 	</ol>
 	<div id="test1" style="width: 80%;margin: 30px auto"></div>
 	
@@ -29,7 +31,11 @@
 		<li>步骤增加点击事件："onStepClick"</li>
 		<li>步骤增加点击事件："onPathClick"</li>
 		<li>
+			foyoflowAppendStep
 			<button onclick="test_append()">添加</button>
+		</li>
+		<li>
+			foyoflowUpdateStep
 			<button onclick="test_update()">变更</button>
 			<button onclick="test_update2()">变更多个</button>
 		</li>
@@ -68,7 +74,8 @@
 				{
 					"roadmap_id": "r3",
 					"status": "done",
-					"label": "洗瓜"
+					"label": "洗瓜",
+					"reddot" :true
 				},
 				{
 					"roadmap_id": "r4",
@@ -123,8 +130,7 @@
 					"roadmap_id": "r3",
 					"status": "done",
 					"timestamp": 1521609065,
-					"label": "洗瓜",
-					"reddot" :true
+					"label": "洗瓜"
 				},
 				{
 					"roadmap_id": "r4",
