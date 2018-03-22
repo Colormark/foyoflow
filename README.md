@@ -18,7 +18,7 @@ $("#test").foyoflow({
 		{
 			"roadmap_id": "xx", //必需唯一
 			"label": "付钱",    //标签
-			"status": "done",   //状态："todo","waiting","processing","done"
+			"status": "done",   //可选. 状态："todo","waiting","processing","done"
 			"flag":  //可选
 			{
 				"flag_id": "yy", //必需唯一
@@ -32,7 +32,7 @@ $("#test").foyoflow({
 	
 	//更多设置
 	"lineWidth":100,/*限制宽度(垂直时为高度)，默认不限制*/
-	"showIntervalWhenMouseHoverOnLine":true,/*鼠标悬停Line时显示时间差*/ //to-do
+	//"showIntervalWhenMouseHoverOnLine":true,/*鼠标悬停Line时显示时间差*/ //to-do
 	"direction":"row",/*方向，默认column*/
 	
 	//事件
@@ -42,17 +42,21 @@ $("#test").foyoflow({
 		alert(stepData["label"]);
 	},
 	"onPathClick":function (step)//步骤路径被点击 
-	{}
+	{
+		var stepData = step.data("stepData");
+		alert(stepData["label"]);
+	}
 });
 
 //更新数据 
-$("#test").foyoflowUpdate(roadmaps);
+//$("#test").foyoflowUpdate(roadmaps);  //to-do,考虑是否需要
 
 //更新具体一个步骤的数据
 $("#test").foyoflowUpdateStep(roadmap);
+//roadmap可以是一个步骤的数据对象或一组步骤的数组,多个意味着一次更新多个
 
 //追加一个roadmap
 $("#test").foyoflowAppendStep(roadmap);
-	
+//roadmap可以是一个步骤的数据对象或一组步骤的数组,多个意味着一次加多个
 	
 ```
