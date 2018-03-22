@@ -27,7 +27,12 @@
 		<li>步骤等待处理</li>
 		<li>宽度限定（最大宽度，但可被压缩）</li>
 		<li>步骤增加点击事件："onStepClick"</li>
-		<li>步骤线鼠标悬停查看时间间隔："showIntervalWhenMouseHoverOnLine"</li>
+		<li>步骤增加点击事件："onPathClick"</li>
+		<li>
+			<button onclick="test_append()">添加</button>
+			<button onclick="test_update()">变更</button>
+			<button onclick="test_update2()">变更多个</button>
+		</li>
 	</ol>
 	<div id="test2" style="width: 80%;margin: 30px auto"></div>
 
@@ -118,7 +123,8 @@
 					"roadmap_id": "r3",
 					"status": "done",
 					"timestamp": 1521609065,
-					"label": "洗瓜"
+					"label": "洗瓜",
+					"reddot" :true
 				},
 				{
 					"roadmap_id": "r4",
@@ -146,6 +152,10 @@
 				}
 			],
 			"onStepClick":function (step) {
+				var stepData = step.data("stepData");
+				alert(stepData["label"]);
+			},
+			"onPathClick":function (step) {
 				var stepData = step.data("stepData");
 				alert(stepData["label"]);
 			}
@@ -176,7 +186,8 @@
 					"roadmap_id": "r3",
 					"status": "done",
 					"timestamp": 1521609065,
-					"label": "洗瓜"
+					"label": "洗瓜",
+					"reddot" :true
 				},
 				{
 					"roadmap_id": "r4",
@@ -202,12 +213,46 @@
 					"roadmap_id": "r7",
 					"label": "吃完了"
 				}
-			],
-			"onStepClick":function (step) {
-				var stepData = step.data("stepData");
-				alert(stepData["label"]);
-			}
+			]
 		});
+
+
+		function test_append(){
+			$("#test2").foyoflowAppendStep({
+				"roadmap_id": "r9",
+				"label": "拉肚子"
+			});
+		}
+
+		function test_update(){
+			$("#test2").foyoflowUpdateStep({
+				"roadmap_id": "r3",
+				"label": "不洗瓜",
+				"status": "waiting",
+			});
+		}
+
+		function test_update2(){
+			$("#test2").foyoflowUpdateStep([
+				{
+					"roadmap_id": "r5",
+					"label": "洗好手",
+					"status": "done",
+				},
+				{
+					"roadmap_id": "r6",
+					"label": "吃瓜瓜",
+					"status": "waiting",
+					"flag": {
+						"flag_id": "f2",
+						"label": "吃到",
+						"color": "#ff5722"
+					}
+				}
+			]);
+		}
+
+		
 
 	</script>
 	
